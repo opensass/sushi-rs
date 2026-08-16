@@ -1,0 +1,19 @@
+[package]
+name = "sushi-rs-yew-example"
+version = "0.1.0"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+edition = "2024"
+
+[dependencies]
+sushi-rs = { path = "../../", features = ["yew"] }
+console_error_panic_hook = "0.1.7"
+log = "0.4.33"
+wasm-logger = "0.2.0"
+yew = { version = "0.23.0", features = ["csr"], default-features = false }
+yew-router = { version = "0.20.0", default-features = false }
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = "thin"
+strip = "symbols"
